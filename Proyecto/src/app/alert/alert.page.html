@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>alert</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button id="present-alert-1">Alerta 1</ion-button>
+  <ion-alert
+    trigger="present-alert-1"
+    header="Mamitas puebla"
+    subHeader="Subscripcion"
+    message="Paga lo que debes prro."
+    [buttons]="alertButtons">
+  </ion-alert>
+
+  <ion-button id="present-alert-2">Alerta 2</ion-button>
+  <ion-alert
+    trigger="present-alert-2"
+    header="Has sido baneado de free fire"
+    [buttons]="alertButtons"
+    (didDismiss)="setResult($event)">
+  </ion-alert>
+
+  <ion-button id="present-alert-3">Alerta 3</ion-button>
+  <ion-alert
+    trigger="present-alert-3"
+    header="Por favor ingresa tu información"
+    [buttons]="alertButtons"
+    [inputs]="alertInputs">
+  </ion-alert>
+</ion-content>
