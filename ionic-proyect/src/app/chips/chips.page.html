@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>chips</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-chip>Por defecto</ion-chip>
+  <ion-chip [disabled]="true">Transparente</ion-chip>
+  <ion-chip [outline]="true">Fuera de linea</ion-chip>
+
+  <ion-chip>
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" src="https://static.wixstatic.com/media/16fbb1_e0f58f84b47a4754a55631e8c189d430~mv2.png/v1/fill/w_700,h_700,al_c/icon.png" />
+    </ion-avatar>
+    <ion-label>Avatar</ion-label>
+    <ion-icon name="close-circle"></ion-icon>
+  </ion-chip>
+
+  <ion-chip>
+    <ion-icon name="pin" color="primary"></ion-icon>
+    <ion-label>Icono</ion-label>
+    <ion-icon name="close"></ion-icon>
+  </ion-chip>
+
+  <ion-chip>Por defectot</ion-chip>
+<ion-chip color="primary">Azul</ion-chip>
+<ion-chip color="secondary">Azul cielo</ion-chip>
+<ion-chip color="tertiary">Morado</ion-chip>
+<ion-chip color="success">Verde</ion-chip>
+<ion-chip color="warning">Amarillo</ion-chip>
+<ion-chip color="danger">Rojo</ion-chip>
+</ion-content>

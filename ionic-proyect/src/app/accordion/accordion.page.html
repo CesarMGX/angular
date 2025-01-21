@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>accordion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Primer acordion</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Pinpollo</div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Segundo acordion</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Crazy'z</div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Tercer acordion</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Papilechoso</div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Primer acordion 2</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Lechuga</div>
+    </ion-accordion>
+    <ion-accordion value="second" [disabled]="true">
+      <ion-item slot="header" color="light">
+        <ion-label>Segundo acordion (transparente)</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">LOL</div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Tercer acordion 2</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Pablo :c</div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <ion-accordion-group>
+    <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
+      <ion-item slot="header" color="light">
+        <ion-label>Primer acordion 3</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Pablo</div>
+    </ion-accordion>
+    <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
+      <ion-item slot="header" color="light">
+        <ion-label>Segundo arcodion 3</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Letuzo</div>
+    </ion-accordion>
+    <ion-accordion value="third" toggleIcon="caret-down-circle" toggleIconSlot="start">
+      <ion-item slot="header" color="light">
+        <ion-label>Tercer acordion 3</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">No manches frida</div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

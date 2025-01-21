@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>checkbox</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-checkbox>Acepto lo terminos y condiciones</ion-checkbox>
+
+  <ion-checkbox labelPlacement="start">Caja de inicio</ion-checkbox>
+
+  <br />
+
+  <ion-checkbox labelPlacement="end">Caja de final</ion-checkbox>
+
+  <br />
+
+  <ion-checkbox labelPlacement="fixed">LOL?</ion-checkbox>
+
+  <br />
+
+  <ion-checkbox labelPlacement="stacked">Solo da click xd</ion-checkbox>
+
+  <ion-checkbox>I agree to the <a href="#" (click)="$event.stopPropagation()">terms and conditions</a></ion-checkbox>
+</ion-content>

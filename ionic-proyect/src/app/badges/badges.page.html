@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>badges</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label>Seguidores</ion-label>
+      <ion-badge color="primary">22k</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Me gustas</ion-label>
+      <ion-badge color="secondary">118k</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Estrellas</ion-label>
+      <ion-badge color="tertiary">34k</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Completado</ion-label>
+      <ion-badge color="success">80</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Peligros</ion-label>
+      <ion-badge color="warning">70</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Notificaciones</ion-label>
+      <ion-badge color="danger">1000</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-badge slot="start">11</ion-badge>
+      <ion-label>Insignia 1 inicio</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-badge slot="end">22</ion-badge>
+      <ion-label>Insignia 2 final</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Insignia con estilo</ion-label>
+      <ion-badge>1</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>
