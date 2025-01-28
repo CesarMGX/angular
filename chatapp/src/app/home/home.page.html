@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Whatsapp</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openPopover($event)">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let dsm of chats" [button]="true">
+      <ion-avatar slot="start">
+        <img alt="" [src]="dsm.avatar">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{ dsm.name }}</h3>
+        <p>{{ dsm.message }}</p>
+      </ion-label>
+      <ion-note slot="end" color="medium">{{ dsm.time }}</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-tabs>
+    <ion-tab tab="home">
+      <div id="home-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Listen now</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="radio">
+      <div id="radio-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Radio</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="library">
+      <div id="library-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Library</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="search">
+      <div id="search-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Search</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+
+    <ion-tab-bar slot="bottom" style="position: sticky; bottom: 0; z-index: 1000; background-color: var(--ion-color-light);">
+      <ion-tab-button tab="home">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="radio">
+        <ion-item routerLink="/novedades">
+          <ion-icon name="notifications-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+      <ion-tab-button tab="library">
+        <ion-item routerLink="/llamadas">
+          <ion-icon name="call-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

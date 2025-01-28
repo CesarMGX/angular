@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Novedades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://ethic.es/wp-content/uploads/2023/01/memes-antes-1280x768.jpg" />
+    <ion-card-header>
+      <ion-card-title>prros</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://i.ytimg.com/vi/cgvcuJIf8LE/hqdefault.jpg" />
+    <ion-card-header>
+      <ion-card-title>tilin uwu</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjuA7WqkvtLubUOU_R9skcKxr_XW9cZDYXbw&s" />
+    <ion-card-header>
+      <ion-card-title>Paola ;)</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://i.pinimg.com/236x/be/86/d4/be86d409669f194487b56774eacae6db.jpg" />
+    <ion-card-header>
+      <ion-card-title>Gringo</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-tabs>
+    <ion-tab tab="home">
+      <div id="home-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Listen now</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="radio">
+      <div id="radio-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Radio</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="library">
+      <div id="library-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Library</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="search">
+      <div id="search-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Search</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+  
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-item routerLink="/home">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+      <ion-tab-button tab="radio">
+        <ion-item routerLink="/novedades">
+        <ion-icon name="notifications-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+      <ion-tab-button tab="library">
+        <ion-item routerLink="/llamadas">
+        <ion-icon name="call-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

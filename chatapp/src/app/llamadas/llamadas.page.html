@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Llamadas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item *ngFor="let call of calls" lines="full" [button]="true">
+      <ion-avatar slot="start">
+        <img alt="avatar" [src]="call.avatar">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{ call.name }}</h3>
+        <p [ngClass]="{
+              'missed-call': call.type === 'missed',
+              'incoming-call': call.type === 'incoming',
+              'outgoing-call': call.type === 'outgoing'
+            }">
+          {{ call.time }}
+        </p>
+      </ion-label>
+      <ion-icon
+        slot="end"
+        [name]="call.video ? 'videocam-outline' : 'call-outline'"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  
+  <ion-tabs>
+    <ion-tab tab="home">
+      <div id="home-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Listen now</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="radio">
+      <div id="radio-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Radio</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="library">
+      <div id="library-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Library</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+    <ion-tab tab="search">
+      <div id="search-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Search</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+    </ion-tab>
+  
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-item routerLink="/home">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+      <ion-tab-button tab="radio">
+        <ion-item routerLink="/novedades">
+        <ion-icon name="notifications-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+      <ion-tab-button tab="library">
+        <ion-item routerLink="/llamadas">
+        <ion-icon name="call-outline"></ion-icon>
+        </ion-item>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
