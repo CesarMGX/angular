@@ -1,0 +1,59 @@
+<ion-card *ngFor="let i of [].constructor(20); let index = index">
+  <ion-item>
+    <ion-avatar aria-hidden="true" slot="start">
+      <img alt src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <ion-label>
+      <strong>{{ 'Usuario' + (index + 1) }}</strong> - {{ randomDate }}
+      <br>
+      <ion-note>{{ 'Ciudad' + (index + 1) }}</ion-note>
+    </ion-label>
+    <ion-icon name="ellipsis-horizontal" slot="end"></ion-icon>
+  </ion-item>
+
+  <img alt="Silhouette of mountains"
+    src="https://oem.com.mx/elheraldodetabasco/img/19407790/1636870324/BASE_LANDSCAPE/480/MEMES%20AMLO.webp" />
+
+  <ion-item class="ion-no-padding">
+    <ion-buttons slot="start">
+      <!-- Ícono de corazón con manejo de like -->
+      <ion-icon 
+        style="transform: scale(0.9);" 
+        size="large" 
+        slot="icon-only"
+        [name]="liked ? 'heart' : 'heart-outline'"
+        (click)="toggleLike()"
+        [ngStyle]="{ color: liked ? 'red' : '' }">
+      </ion-icon>
+      <ion-icon style="transform: scale(0.8);" size="large" slot="icon-only"
+        name="chatbubble-outline"></ion-icon>
+      <ion-icon style="transform: scale(0.85);" size="large" slot="icon-only"
+        name="paper-plane-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <!-- Ícono de guardar con manejo de guardado -->
+      <ion-icon 
+        style="transform: scale(0.85);" 
+        size="large" 
+        slot="icon-only"
+        [name]="saved ? 'bookmark' : 'bookmark-outline'"
+        (click)="toggleSaved()"
+        [ngStyle]="{ color: saved ? 'primary' : 'warning' }">
+      </ion-icon>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <strong>{{ randomLikes }} likes</strong>
+      <br>
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <strong>Cesar MG</strong>
+      Fotosgram - Desarrollo de prácticas de IONIC realizando el diseño de una aplicación de redes sociales
+    </ion-label>
+  </ion-item>
+</ion-card>
