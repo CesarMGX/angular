@@ -8,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
+  user = {
+    name: '',
+    email: '',
+    password: '',
+    gender: ''
+  };
+
   constructor() {}
+
+  submitForm() {
+    console.log('Formulario enviado:', this.user);
+    alert('Formulario enviado con éxito!');
+  }
 
 }

@@ -1,19 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-searchbar animated="true" placeholder="Buscar..."></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab lol</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-
+  <div class="carousel">
+    <div class="slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div *ngFor="let image of images" class="slide">
+        <img [src]="image" alt="Slide">
+      </div>
+    </div>
+    <button class="prev" (click)="prevSlide()">&#10094;</button>
+    <button class="next" (click)="nextSlide()">&#10095;</button>
+  </div>
+  
+  <ion-list>
+    <ion-item *ngFor="let dsm of chats" [button]="true">
+      <ion-avatar slot="start">
+        <img alt="" [src]="dsm.avatar">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{ dsm.name }}</h3>
+        <p>{{ dsm.message }}</p>
+      </ion-label>
+      <ion-note slot="end" color="medium">{{ dsm.time }}</ion-note>
+    </ion-item>
+  </ion-list>
 </ion-content>

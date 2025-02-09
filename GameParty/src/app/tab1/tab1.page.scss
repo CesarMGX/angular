@@ -1,0 +1,49 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Ajusta el tamaño máximo */
+    margin: 0 auto; /* Centra el carrusel */
+    overflow: hidden;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un mejor diseño */
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Ajusta la altura máxima */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+    border-radius: 10px;
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+  }
+  
+  .prev {
+    left: 5px;
+  }
+  
+  .next {
+    right: 5px;
+  }
+  

@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Tab 2</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +11,44 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nueva Partida</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="submitForm()">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Nombre de la partida</ion-label>
+            <ion-input type="text" [(ngModel)]="user.name" name="name" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label>Seleccione el juego</ion-label>
+            <ion-select [(ngModel)]="user.gender" name="gender" placeholder="Elija sabiamente">
+              <ion-select-option value="codw">Call Of Duty Warzone</ion-select-option>
+              <ion-select-option value="for">Fornite</ion-select-option>
+              <ion-select-option value="mine">Minecraft</ion-select-option>
+              <ion-select-option value="eafc">EA FC 25</ion-select-option>
+              <ion-select-option value="apex">Apex</ion-select-option>
+              <ion-select-option value="gta">GTA 5</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+        <ion-button expand="full" type="submit">Registrar</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
