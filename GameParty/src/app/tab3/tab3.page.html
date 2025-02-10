@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Partidas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card *ngFor="let partida of partidas">
+    <ion-card-header>
+      <ion-card-title>{{ partida.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Juego:</strong> {{ partida.juego }}</p>
+      <p><strong>Fecha:</strong> {{ partida.fecha }}</p>
+      <ion-list>
+        <ion-item *ngFor="let jugador of partida.jugadores">
+          <ion-label>
+            {{ jugador.name }}
+          </ion-label>
+          <ion-select [(ngModel)]="jugador.status">
+            <ion-select-option value="aceptado">Aceptado</ion-select-option>
+            <ion-select-option value="esperando">Pendiente</ion-select-option>
+            <ion-select-option value="rechazado">Rechazado</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="full" color="warning" (click)="editPartida(partida)">Editar</ion-button>
+      <ion-button expand="full" color="danger" (click)="deletePartida(partida.id)">Eliminar</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

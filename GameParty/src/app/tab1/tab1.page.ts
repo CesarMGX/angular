@@ -14,7 +14,7 @@ export class Tab1Page implements OnInit, OnDestroy {
     'https://cdn2.unrealengine.com/fortnite-na-central-server-region-3-1920x1080-8e53d35d7d26.jpg',
     'https://i.ytimg.com/vi/GcGJ4fe0iNk/maxresdefault.jpg',
   ];
-  chats = [
+  jugadores = [
     {
       name: 'IIPapilechosoII',
       message: "Saca el fornite papu",
