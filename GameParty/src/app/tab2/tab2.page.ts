@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PartidaService } from '../services/partida.service';
 import { Partida } from '../models/partida.model';
 import { Router } from '@angular/router';
-import { JugadorServiceService } from '../services/jugador-service.service';
+import { JugadorServiceService } from '../services/jugador.service';
 
 @Component({
   selector: 'app-tab2',
@@ -25,7 +25,7 @@ export class Tab2Page implements OnInit {
   selectedPlayers: any[] = [];
 
   constructor(
-    private partidaService: PartidaService, 
+    private partidaService: PartidaService,
     private router: Router,
     private jugadorServiceService: JugadorServiceService
   ) {}

@@ -7,7 +7,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   standalone: false,
 })
 export class Tab1Page implements OnInit, OnDestroy {
-  
+  alertButtons = ['Action'];
+
   images = [
     'https://image.api.playstation.com/vulcan/ap/rnd/202407/1020/91fe046f742042e3b31e57f7731dbe2226e1fd1e02a36223.jpg',
     'https://nosdicengamers.com/wp-content/uploads/2024/08/warzone-temporada-3.jpg',
@@ -70,7 +71,7 @@ export class Tab1Page implements OnInit, OnDestroy {
   }
 
   nextSlide() {
-    this.currentIndex = (this.currentIndex + 1) % this.images.length; 
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
   }
 
   prevSlide() {

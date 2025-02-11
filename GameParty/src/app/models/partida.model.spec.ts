@@ -5,3 +5,4 @@ describe('Partida', () => {
     expect(new Partida()).toBeTruthy();
   });
 });
+

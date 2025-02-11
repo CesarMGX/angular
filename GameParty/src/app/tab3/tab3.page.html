@@ -17,11 +17,9 @@
           <ion-label>
             {{ jugador.name }}
           </ion-label>
-          <ion-select [(ngModel)]="jugador.status">
-            <ion-select-option value="aceptado">Aceptado</ion-select-option>
-            <ion-select-option value="esperando">Pendiente</ion-select-option>
-            <ion-select-option value="rechazado">Rechazado</ion-select-option>
-          </ion-select>
+          <ion-text [color]="getStatusColor(jugador.status)">
+            <strong>{{ getStatusText(jugador.status) }}</strong>
+          </ion-text>
         </ion-item>
       </ion-list>
       <ion-button expand="full" color="warning" (click)="editPartida(partida)">Editar</ion-button>

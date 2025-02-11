@@ -1,10 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-searchbar animated="true" placeholder="Buscar..."></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title><strong>MENU</strong></ion-title>
+      </ion-toolbar>
+    </ion-header><br>
+    <ion-content>
+      <ion-button id="present-alert">Notificaciones</ion-button>
+      <ion-alert
+      trigger="alert-1"
+      header="Nueva Partida"
+      subHeader="¡Una nueva partida está disponible!"
+      message="Únete ahora para jugar con tus amigos."
+      [buttons]="['Cerrar']"
+    ></ion-alert>
+    </ion-content>
+    <ion-content>
+      <ion-button id="present-alert">Ajustes</ion-button>
+    </ion-content>
+    <ion-content>
+      <ion-button id="present-alert" routerLink="/login">Cerrar Sesión</ion-button>
+      <ion-alert
+      trigger="alert-3"
+      header="Cerrar Sesión"
+      message="Esta cerrando su sesión"
+      [buttons]="['Cerrar']"
+    ></ion-alert>
+    </ion-content>
+
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title><strong>Game PARTY</strong></ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+
+  <br><br><br><br>
   <div class="carousel">
     <div class="slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
       <div *ngFor="let image of images" class="slide">
@@ -14,7 +50,7 @@
     <button class="prev" (click)="prevSlide()">&#10094;</button>
     <button class="next" (click)="nextSlide()">&#10095;</button>
   </div>
-  
+  <br>
   <ion-list>
     <ion-item *ngFor="let dsm of jugadores" [button]="true">
       <ion-avatar slot="start">

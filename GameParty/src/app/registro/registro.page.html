@@ -1,0 +1,38 @@
+<ion-content class="ion-padding">
+  <div class="register-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><strong>REGISTRO</strong></ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Campo Nombre -->
+        <ion-item>
+          <ion-label position="floating">Nombre Completo</ion-label>
+          <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+
+        <!-- Campo Correo -->
+        <ion-item>
+          <ion-label position="floating">Correo Electrónico</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <!-- Campo Contraseña -->
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <!-- Botón de Registro -->
+        <ion-button expand="full" (click)="register()">Registrarse</ion-button>
+
+        <!-- Enlace para volver al login -->
+        <p class="login-text">
+          ¿Ya tienes cuenta? <br>
+          <a routerLink="/login">Inicia sesión aquí</a>
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
