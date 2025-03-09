@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Escáner QR & Código de Barras</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="full" (click)="startScan()" [disabled]="isScanning">
+    {{ isScanning ? 'Escaneando...' : 'Iniciar Escaneo' }}
+  </ion-button>
+
+  <ion-button expand="full" color="danger" (click)="stopScan()" [disabled]="!isScanning">
+    Detener Escaneo
+  </ion-button>
+
+  <ion-card *ngIf="scannedResult">
+    <ion-card-header>
+      <ion-card-title>Resultado Escaneado</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="primary"><strong>{{ scannedResult }}</strong></ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

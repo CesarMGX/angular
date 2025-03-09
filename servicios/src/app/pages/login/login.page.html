@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Botón Google con estilo personalizado -->
+  <ion-button expand="full" (click)="googleLogin()" style="--background: #4285F4; --color: white; --border-radius: 8px; --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <ion-icon slot="start" name="logo-google"></ion-icon>
+    Iniciar sesión con Google
+  </ion-button>
+
+  <!-- Botón X con estilo personalizado -->
+  <ion-button expand="full" (click)="loginWithTwitter()" style="--background: #1DA1F2; --color: white; --border-radius: 8px; --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <ion-icon slot="start" name="logo-twitter"></ion-icon>
+    Iniciar sesión con X
+  </ion-button>
+
+</ion-content>

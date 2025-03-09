@@ -1,0 +1,86 @@
+<ion-menu side="start" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Servicios</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item button [routerLink]="'/login'">
+        <ion-icon slot="start" name="logo-google"></ion-icon>
+        <ion-label>Iniciar sesión con Google</ion-label>
+      </ion-item>
+
+      <ion-item button [routerLink]="'/login'">
+        <ion-icon slot="start" name="logo-twitter"></ion-icon>
+        <ion-label>Iniciar sesión con X</ion-label>
+      </ion-item>
+
+      <ion-item button [routerLink]="'/qr'">
+        <ion-icon slot="start" name="qr-code"></ion-icon>
+        <ion-label>Código QR y de Barras</ion-label>
+      </ion-item>
+
+      <ion-item button [routerLink]="'/perfil'">
+        <ion-icon slot="start" name="camera"></ion-icon>
+        <ion-label>Cambio de foto de perfil</ion-label>
+      </ion-item>
+
+      <ion-item button [routerLink]="'/payment'">
+        <ion-icon slot="start" name="logo-paypal"></ion-icon>
+        <ion-label>Proceso de pago con Paypal</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <div class="welcome-message">
+      <h2>¡Bienvenido/a!</h2>
+      <p *ngIf="userName">Hola, <strong>{{ userName }}</strong>. Disfruta de nuestros servicios.</p>
+      <p *ngIf="!userName">Por favor, inicia sesión para acceder a más funciones.</p>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="full" color="primary" [routerLink]="'/qr'">
+            <ion-icon slot="start" name="qr-code"></ion-icon>
+            Escanear QR
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="full" color="success" [routerLink]="'/payment'">
+            <ion-icon slot="start" name="logo-paypal"></ion-icon>
+            Pagar con PayPal
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="full" color="tertiary" [routerLink]="'/perfil'">
+            <ion-icon slot="start" name="camera"></ion-icon>
+            Cambiar Foto
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="full" color="danger" [routerLink]="'/login'">
+            <ion-icon slot="start" name="log-in"></ion-icon>
+            Iniciar Sesión
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+</div>
