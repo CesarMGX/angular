@@ -1,0 +1,31 @@
+/* card-game-page.component.css */
+.game-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  
+  .game-card {
+    width: 300px;
+    transition: box-shadow 0.3s;
+  }
+  
+  .game-card:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+  
+  .game-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+  }
+  
+  mat-card-image {
+    height: 150px;
+    object-fit: cover;
+  }
+  

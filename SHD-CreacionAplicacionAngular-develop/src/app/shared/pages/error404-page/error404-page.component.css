@@ -1,0 +1,52 @@
+.error-page-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../../../../../public/FOR-WEB-404-astronaut.jpg') no-repeat center center;
+    background-size: cover; /* Cubre completamente el área sin ser recortada */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    color: white;
+    text-align: center;
+}
+
+.error-page-text {
+    z-index: 10; /* Asegura que el texto está sobre el fondo */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente para mejorar la legibilidad */
+    border-radius: 10px;
+}
+
+.error-page-container a {
+    font-size: 18px;
+    color: #FFD700; /* Color destacado para el botón */
+    background-color: #000; /* Fondo oscuro para el botón */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px; /* Espacio arriba del botón */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.error-page-container .back-button {
+    position: absolute; /* Posición absoluta dentro del contenedor relativo */
+    bottom: 50px; /* Ajusta la distancia desde el borde inferior del contenedor */
+    left: 50%; /* Centra el botón horizontalmente */
+    transform: translateX(-50%); /* Asegura que el centro del botón esté en el centro horizontal */
+    background-color: #FFD700; /* Color de fondo dorado */
+    color: black; /* Color del texto negro */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    cursor: pointer; /* Cursor de mano para indicar que es clickeable */
+}
+
+.error-page-container .back-button:hover {
+    background-color: #e6c300; /* Color ligeramente más oscuro para el hover */
+}

@@ -1,0 +1,70 @@
+  /* En game-page.component.css */
+.background-container {
+    background-image: url('../../../../../public/imagen1.jpeg'); /* Cambia esto a la ruta real de tu imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: start; /* Alinea el contenido a la izquierda */
+    padding-left: 10%; /* Espacio desde el borde izquierdo de la pantalla */
+    color: white; /* Texto en color blanco */
+  }
+  
+  .content {
+    max-width: 500px; /* Ajusta esto según el tamaño deseado del bloque de texto */
+  }
+  
+  h1 {
+    font-size: 2.5rem; /* Tamaño grande para el encabezado */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    font-size: 1.2rem; /* Tamaño adecuado para el texto descriptivo */
+    margin-bottom: 0.5rem;
+  }
+  
+  button {
+    background-color: #FF1177; /* Color de fondo del botón */
+    color: white; /* Texto del botón en blanco */
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  /*Diseños del sinopsis xd*/
+  .text-container {
+    background-color: #2d2d90; /* Fondo oscuro para destacar el texto */
+    color: white;
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: center; /* Centra todo el texto dentro del contenedor */
+  }
+  
+  .text-container h2, .text-container h3, .text-container p, .text-container li {
+    text-align: center; /* Asegura que todos los textos se centren, incluyendo listas y subtítulos */
+  }
+  
+  .text-container ul {
+    list-style-type: none; /* Sin viñetas para una apariencia más limpia */
+    padding: 0;
+    width: 100%; /* Asegura que la lista ocupe todo el ancho del contenedor para centrar correctamente */
+  }
+  
+  .text-container li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .text-container li::before {
+    content: "⮞ "; /* Agrega un símbolo para listar ítems */
+    color: #FF6347; /* Un toque de color para los ítems de la lista */
+  }
+  
+  
+  
+  

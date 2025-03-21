@@ -1,0 +1,19 @@
+<!-- card-game-page.component.html -->
+<div class="game-cards">
+    <mat-card *ngFor="let game of games" class="game-card">
+      <mat-card-header>
+        <div mat-card-avatar class="game-image" [style.backgroundImage]="'url(' + game.image + ')'"></div>
+        <mat-card-title>{{ game.name }}</mat-card-title>
+        <mat-card-subtitle>{{ game.genre }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="game.image" alt="{{ game.name }}">
+      <mat-card-content>
+        <p>{{ game.description }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button>Learn More</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
+  <app-footer></app-footer>

@@ -1,0 +1,50 @@
+.logo img {
+    height: 130px; /* Ajusta según el tamaño del logo */
+    margin: 7px 15px 7px 0;
+    margin-top: 55px;
+  }
+
+/* Estilos básicos para la barra de navegación */
+mat-toolbar {
+    background: #2d2d90; /* Un fondo oscuro para resaltar el neón */
+    color: white;
+    padding: 10px; /* Ajusta el padding si es necesario */
+    position: relative;
+    box-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px #2d2d90, /* Cambia #FF1177 al color de neón deseado */
+      0 0 40px #2d2d90,
+      0 0 60px #2d2d90,
+      0 0 80px #2d2d90,
+      0 0 100px #2d2d90; /* Ajusta para mayor o menor intensidad */
+  }
+  
+  mat-toolbar button {
+    color: white; /* Cambia el color de texto a blanco */
+  }
+  
+  mat-toolbar button:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #1b1b83;
+    box-shadow:
+      0 0 5px #1b1b83,
+      0 0 15px #1b1b83,
+      0 0 30px #1b1b83,
+      0 0 45px #1b1b83;
+    animation: neonGlow 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes neonGlow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }

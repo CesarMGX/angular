@@ -1,0 +1,77 @@
+/* Estilo para el contenedor principal */
+.login-card {
+    max-width: 800px;
+    margin: 40px auto;  /* Añadido margen de 40px en los 4 lados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);  /* Ajuste de altura para considerar el margen */
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estilos para el contenedor del login */
+  .login-container {
+    display: flex;
+    width: 100%;
+    height: 100%; /* Asegura que ocupe toda la altura disponible */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  }
+  
+  /* El panel izquierdo con el logo y la imagen */
+  .left-panel {
+    background: linear-gradient(to right, #4b0082, #8a2be2);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+  }
+  
+  /* El panel derecho con el formulario de login */
+  .right-panel {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  }
+  
+  /* Asegura que el formulario y los elementos dentro del formulario tengan el 100% de ancho */
+  .full-width {
+    width: 100%;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .social-login {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .social-buttons button {
+    margin: 0 5px;
+  }
+
+  img {
+    width: 250px;
+    height: 150px;
+  }
+  
+a:hover {
+    color: blue;
+}
+
+.logo {
+    color: rgb(204, 204, 204);
+}

@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <div class="logo">
+    <img src="logo.png" alt="Your Logo">
+  </div>
+  <!-- Iterar sobre navItems para botones de navegación -->
+  <button *ngFor="let item of navItems" mat-button [routerLink]="item.url">
+    {{ item.label }}
+  </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+  
