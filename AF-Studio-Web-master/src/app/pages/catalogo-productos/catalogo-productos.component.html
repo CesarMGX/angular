@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="product-catalog-container">
+    <h2>Catálogo de Productos</h2>
+
+    <!-- Botón para mostrar el formulario -->
+    <button (click)="showAddProductForm = !showAddProductForm">Añadir Producto</button>
+
+    <!-- Formulario de añadir producto -->
+    <div *ngIf="showAddProductForm">
+        <form [formGroup]="productForm" (ngSubmit)="agregarProducto()">
+            <input type="text" formControlName="nombre" placeholder="Nombre del Producto" required />
+            <div *ngIf="productForm.get('nombre')?.invalid && productForm.get('nombre')?.touched">
+                El nombre solo debe contener letras y números.
+            </div>
+
+            <textarea formControlName="caracteristicas" placeholder="Descripción del Producto" required></textarea>
+            <div *ngIf="productForm.get('caracteristicas')?.invalid && productForm.get('caracteristicas')?.touched">
+                La descripción debe tener al menos 10 caracteres.
+            </div>
+
+            <button type="submit" [disabled]="productForm.invalid">Guardar</button>
+        </form>
+    </div>
+
+    <!-- Lista de productos -->
+    <div class="productos-container">
+        <div *ngFor="let producto of productos" class="producto-card">
+            <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="producto-imagen" />
+            <div class="producto-nombre">{{ producto.nombre }}</div>
+            <div class="producto-caracteristicas">{{ producto.caracteristicas }}</div>
+
+            <div class="detalles" [class.mostrar]="producto.mostrarDetalles">
+                <p><strong>Detalles adicionales del producto</strong></p>
+                <button class="button-editar" (click)="editarProducto(producto)">Editar</button>
+                <button class="button-eliminar" (click)="eliminarProducto(producto)">Eliminar</button>
+            </div>
+
+            <button (click)="toggleDetalles(producto)">
+                {{ producto.mostrarDetalles ? 'Ocultar De

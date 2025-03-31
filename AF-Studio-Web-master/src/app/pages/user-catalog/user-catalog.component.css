@@ -1,0 +1,70 @@
+body {
+    background-color: #080d27; /* Azul marino */
+    background-image: url('/assets/imagen7.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: white; /* Asegura que el texto sea legible sobre el fondo azul */
+}
+
+/* Contenedor principal */
+.user-catalog-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(41, 131, 221, 0.9); /* Azul con algo de transparencia */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    color: white; /* Texto dentro del contenedor en blanco para contraste */
+}
+
+/* Botones */
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #119434; /* Verde oscuro para el fondo del botón */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #1B5E20; /* Un tono más oscuro de verde para el hover */
+}
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin: 5px 0;
+    padding: 8px;
+    width: 80%;
+    border: 1px solid #1ca841; /* Borde verde oscuro */
+    border-radius: 5px;
+}
+
+/* Lista de usuarios */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border-left: 5px solid #2C6B3D; /* Borde izquierdo verde oscuro */
+    color: black; /* Asegura que el texto dentro de la lista sea legible */
+}

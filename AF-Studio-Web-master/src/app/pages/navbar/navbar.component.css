@@ -1,0 +1,56 @@
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 100%;  /* Ajustamos la altura del logo a la barra */
+    max-height: 50px;  /* Definimos una altura máxima */
+    margin-right: 10px;
+  }
+  
+  .company-name {
+    font-family: 'Cursive', sans-serif; /* Puedes cambiar a cualquier fuente estética que prefieras */
+    font-size: 24px;
+    font-weight: bold;
+    color: #ecf0f1;
+    letter-spacing: 2px;
+  }
+  
+  /* Estilos para los enlaces de navegación */
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar ul li {
+    margin: 0 15px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .navbar ul li a:hover {
+    color: #3498db;
+  }
+  

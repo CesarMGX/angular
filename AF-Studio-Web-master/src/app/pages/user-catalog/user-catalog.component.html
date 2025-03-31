@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo - AF Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #a8e6cf;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .admin-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-header p {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .admin-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        .data-table th {
+            background-color: #f1f3f5;
+            text-align: left;
+            padding: 0.75rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #495057;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 0.95rem;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .crud-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-sm {
+            padding: 0.35rem 0.7rem;
+            font-size: 0.8rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1a252f;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-danger {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6c757d;
+        }
+
+        /* Formularios */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.15s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
+        }
+
+        .is-invalid {
+            border-color: #dc3545;
+        }
+
+        .invalid-feedback {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Panel Administrativo</h1>
+            <p>Gestión integral de Estudio AF</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Tarjeta de Usuarios -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <span>Usuarios</span>
+                    <button class="btn btn-success btn-sm" onclick="openModal('user')">+ Nuevo</button>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Admin</td>
+                                <td>adminestudioaf.com</td>
+                                <td>Administrador</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                                </td>
+                            </tr>
+                            <!-- Más filas de datos... -->
+                        </tbody>
+                    </table>
+                    <div class="crud-actions">
+                        <button class="btn btn-secondary">Ver todos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Clientes -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <span>Clientes</span>
+                    <button class="btn btn-success btn-sm" onclick="openModal('client')">+ Nuevo</button>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Teléfono</th>
+                                <th>Email</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>María González</td>
+                                <td>555-123-4567</td>
+                                <td>mariaejemplo.com</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                                </td>
+                            </tr>
+                            <!-- Más filas de datos... -->
+                        </tbody>
+                    </table>
+                    <div class="crud-actions">
+                        <button class="btn btn-secondary">Ver todos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Empleados -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <span>Empleados</span>
+                    <button class="btn btn-success btn-sm" onclick="openModal('employee')">+ Nuevo</button>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>RFC</th>
+                                <th>Teléfono</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Juan Pérez</td>
+                                <td>PERJ800101ABC</td>
+                                <td>555-987-6543</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                                </td>
+                            </tr>
+                            <!-- Más filas de datos... -->
+                        </tbody>
+                    </table>
+                    <div class="crud-actions">
+                        <button class="btn btn-secondary">Ver todos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Servicios -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <span>Servicios</span>
+                    <button class="btn btn-success btn-sm" onclick="openModal('service')">+ Nuevo</button>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sesión Fotográfica</td>
+                                <td>Estudio</td>
+                                <td>$1,500</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                                </td>
+                            </tr>
+                            <!-- Más filas de datos... -->
+                        </tbody>
+                    </table>
+                    <div class="crud-actions">
+                        <button class="btn btn-secondary">Ver todos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Citas -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <span>Citas</span>
+                    <button class="btn btn-success btn-sm" onclick="openModal('appointment')">+ Nuevo</button>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Fecha</th>
+                                <th>Ubicación</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>C-001</td>
+                                <td>15/06/2023</td>
+                                <td>Estudio Central</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                                </td>
+                            </tr>
+                            <!-- Más filas de datos... -->
+                        </tbody>
+                    </table>
+                    <div class="crud-actions">
+                        <button class="btn btn-secondary">Ver todos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Ventas -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <span>Ventas</span>
+                    <button class="btn btn-success btn-sm" onclick="openModal('sale')">+ Nuevo</button>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Monto</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Álbum Fotográfico</td>
+                                <td>$2,800</td>
+                                <td>10/06/2023</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                                </td>
+                            </tr>
+                            <!-- Más filas de datos... -->
+                        </tbody>
+                    </table>
+                    <div class="crud-actions">
+                        <button class="btn btn-secondary">Ver todos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para formularios -->
+    <div class="modal" id="formModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Nuevo Registro</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="dataForm">
+                    <!-- Los campos del formulario se insertarán aquí dinámicamente -->
+                    <div id="formFields"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+                <button class="btn btn-primary" onclick="submitForm()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funciones para manejar el modal
+        function openModal(type) {
+            const modal = document.getElementById('formModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const formFields = document.getElementById('formFields');
+            
+            // Configurar según el tipo de formulario
+            let title = '';
+            let fields = '';
+            
+            switch(type) {
+                case 'user':
+                    title = 'Nuevo Usuario';
+                    fields = `
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" class="form-control" required>
+                            <div class="invalid-feedback">Por favor ingrese un nombre válido</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" class="form-control" required>
+                            <div class="invalid-feedback">Por favor ingrese un correo válido</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" class="form-control" minlength="6" required>
+                            <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Rol</label>
+                            <select id="role" class="form-control" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="admin">Administrador</option>
+                                <option value="editor">Editor</option>
+                                <option value="viewer">Visualizador</option>
+                            </select>
+                            <div class="invalid-feedback">Por favor seleccione un rol</div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'client':
+                    title = 'Nuevo Cliente';
+                    fields = `
+                        <div class="form-group">
+                            <label for="clientName">Nombre</label>
+                            <input type="text" id="clientName" class="form-control" required>
+                            <div class="invalid-feedback">Por favor ingrese un nombre</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientLastName">Apellidos</label>
+                            <input type="text" id="clientLastName" class="form-control" required>
+                            <div class="invalid-feedback">Por favor ingrese apellidos</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientAddress">Dirección</label>
+                            <input type="text" id="clientAddress" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">Teléfono</label>
+                            <input type="tel" id="clientPhone" class="form-control" pattern="[0-9]{10}" required>
+                            <div class="invalid-feedback">Ingrese un teléfono válido (10 dígitos)</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail">Email</label>
+                            <input type="email" id="clientEmail" class="form-control" required>
+                            <div class="invalid-feedback">Por favor ingrese un correo válido</div>
+                        </div>
+                    `;
+                    break;
+                    
+                // Se pueden agregar más casos para otros tipos de formularios
+                default:
+                    title = 'Nuevo Registro';
+                    fields = '<p>Formulario no configurado</p>';
+            }
+            
+            modalTitle.textContent = title;
+            formFields.innerHTML = fields;
+            modal.style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('formModal').style.display = 'none';
+        }
+        
+        function submitForm() {
+            // Validación básica del formulario
+            const form = document.getElementById('dataForm');
+            const inputs = form.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value) {
+                    input.classList.add('is-invalid');
+                    input.nextElementSibling.style.display = 'block';
+                    isValid = false;
+                } else {
+                    input.classList.remove('is-invalid');
+                    input.nextElementSibling.style.display = 'none';
+                    
+                    // Validación adicional para patrones
+                    if (input.pattern && !new RegExp(input.pattern).test(input.value)) {
+                        input.classList.add('is-invalid');
+                        input.nextElementSibling.style.display = 'block';
+                        isValid = false;
+                    }
+                }
+            });
+            
+            if (isValid) {
+                alert('Formulario enviado correctamente');
+                closeModal();
+                // Aquí iría la lógica para guardar los datos
+            }
+        }
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('formModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

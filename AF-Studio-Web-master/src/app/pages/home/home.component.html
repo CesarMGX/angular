@@ -1,0 +1,102 @@
+<app-navbar></app-navbar> <!-- Esto incluye la barra de navegación como componente en Home -->
+
+<div class="content">
+  <h1>Bienvenido a AF Studio</h1>
+  <p>Capturando emociones, creando eternidad – AF Studio
+
+    En AF Studio, no solo tomamos fotografías; creamos arte visual que narra tu historia. Cada sonrisa, cada mirada, cada instante fugaz se transforma en un recuerdo imborrable bajo nuestra lente.</p>
+</div>
+
+<!-- Carrusel -->
+<div class="carousel-container">
+  <button class="arrow left" (click)="prevSlide()">&#10094;</button>
+  
+  <div class="carousel">
+    <img [src]="images[currentIndex]" alt="Imagen del carrusel" />
+  </div>
+  
+  <button class="arrow right" (click)="nextSlide()">&#10095;</button>
+</div>
+
+<!-- Recuadro de presentación -->
+<div class="presentation-container">
+  <img src="assets/img/imagen4.jpg" alt="Imagen de presentación" class="presentation-image" />
+  <div class="presentation-text">
+    <h2 class="presentation-title">Bienvenido a Estudio AF, fotografía de alta calidad</h2>
+    <p class="presentation-description">
+      En <strong>Estudio AF</strong>, nos apasiona capturar momentos especiales y crear imágenes que inspiran y emocionan.
+      Como una empresa líder en el campo de la fotografía, nos comprometemos a ofrecer servicios y productos de alta
+      calidad que superen tus expectativas. Nuestra misión es proporcionar experiencias fotográficas únicas y
+      personalizadas que reflejen tu estilo y personalidad.
+    </p>
+  </div>
+</div>
+
+<!-- Recuadro de servicios -->
+<div class="presentation-container">
+  <img src="assets/img/imagen8.jpg" alt="Imagen de presentación" class="presentation-image" />
+  <div class="presentation-text">
+    <h2 class="presentation-title">Nuestros servicios para usted</h2>
+    <p class="presentation-description">
+      En <strong>Estudio AF</strong>, ofrecemos una amplia gama de servicios fotográficos diseñados para satisfacer tus necesidades específicas. Nuestros servicios incluyen:
+      
+      Sesiones de fotografía personalizada: Nuestros fotógrafos profesionales trabajarán contigo para crear imágenes únicas y emotivas que reflejen tu personalidad y estilo.
+      Fotografía comercial: Nuestra fotografía comercial te ayudará a crear un impacto visual fuerte y atractivo para tus campañas publicitarias, sitios web y redes sociales.
+      Cursos de fotografía: Aprende a tomar fotos como un profesional con nuestros cursos y talleres de fotografía, diseñados para principiantes y avanzados.
+      
+      
+    </p>
+  </div>
+</div>
+
+<!-- Recuadro de productos -->
+<div class="presentation-container">
+  <img src="assets/img/imagen15.jpeg" alt="Imagen de presentación" class="presentation-image" />
+  <div class="presentation-text">
+    <h2 class="presentation-title">Nuestro productos.</h2>
+    <p class="presentation-description">
+      En <strong>Estudio AF</strong>, Además de nuestros servicios, también ofrecemos una variedad de productos fotográficos diseñados para satisfacer tus necesidades. Nuestros productos incluyen:
+
+      Impresiones de fotos: Imprime tus fotos favoritas en alta calidad en diferentes tamaños y materiales, como papel fotográfico, canvas, madera, etc.
+      Libros foto-personalizados: Crea un libro único con tus fotos favoritas que refleje tu estilo y personalidad.
+      Impresión sobre objetos: Imprime tus fotos en objetos únicos como camisetas, botellas, vasos, etc.
+      Archivo digital - Nube privada: Almacena tus archivos digitales seguramente en nuestra nube privada protegida por contraseña acceso limitado solo autorizado.
+    </p>
+  </div>
+</div>
+
+<!-- Agrega esto al final de tu home.component.html -->
+<footer class="af-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>AF Studio</h3>
+      <p>Capturando momentos extraordinarios desde 2010</p>
+      <div class="social-icons">
+        <a href="#"><i class="icon">📸</i></a>
+        <a href="#"><i class="icon">📱</i></a>
+        <a href="#"><i class="icon">✉️</i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p><i class="icon">📍</i> Av. Fotografía 123, Ciudad Imagen</p>
+      <p><i class="icon">📞</i> +1 234 567 890</p>
+      <p><i class="icon">🕒</i> Lun-Vie: 9am - 7pm</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Servicios</h3>
+      <ul>
+        <li>Fotografía profesional</li>
+        <li>Sesiones en estudio</li>
+        <li>Edición creativa</li>
+        <li>Cursos de fotografía</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2023 AF Studio - Todos los derechos reservados | <a href="#">Política de privacidad</a></p>
+  </div>
+</footer>
